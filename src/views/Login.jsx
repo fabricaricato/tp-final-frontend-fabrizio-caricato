@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import logo from "../assets/images/logo.png"
 
 const Login = () => {
@@ -66,6 +66,7 @@ const Login = () => {
 
       </form>
       <p className="text-info">Acceso restringido • Contenido privado</p>
+      <p className="text-info">Ir a <Link to="/help">Help</Link></p>
     </main>
   )
 }
