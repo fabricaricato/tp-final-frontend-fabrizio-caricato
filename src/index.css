@@ -106,7 +106,7 @@
   margin-bottom: 10px;
 }
 
-.chat-header img {
+.chat-avatar {
   width: 30px;
 }
 
@@ -387,11 +387,12 @@ form .text-info {
 
 body.dark .chat-messages {
   background-color: #121212; 
-  color:#FFFFFF; 
+  color:#FFFFFF;
 }
 
 body.dark .sidebar {
   background-color: #1E1E1E; 
+  border-right: 1px solid #333333;
 }
 
 body.dark .message-bubble {
@@ -402,26 +403,25 @@ body.dark .message-bubble {
 body.dark .search {
   background-color: #1E1E1E; 
   color: #FFFFFF;
+  border-bottom: 1px solid #333333;
 }
 
 body.dark .chat-footer{
   background-color: #1E1E1E; 
   color: #FFFFFF;
+  border-top: 1px solid #333333;
 }
 
 body.dark .chat-footer input{
   background-color: #1E1E1E; 
   color: #FFFFFF;
-}
-
-body.dark .chat-footer input{
-  background-color: #1E1E1E; 
-  color: #FFFFFF;
+  border: 1px solid #333333;
 }
 
 body.dark .chat-header{
   background-color: #1E1E1E;
   color: #FFFFFF;
+  border-bottom: 1px solid #333333;
 }
 
 body.dark .message{
@@ -441,6 +441,7 @@ body.dark .log-out:hover{
 
 body.dark .user{
   color: #FFFFFF;
+  border: 3px solid #333333;
 }
 
 body.dark .user:hover{
