@@ -95,8 +95,8 @@ export default function Chat() {
             <button title="Camera">📷</button>
             <button title="Gallery">🖼️</button>
             <button title="Settings" onClick={handleShowPopup}>⚙️</button>
-            <Link to="/help" title="Help">❓</Link>
-            <button onClick={handleLogout}>Cerrar sesión</button>
+            <Link to="/help" title="Help"className="help-button">❓</Link>
+            <button onClick={handleLogout} className="log-out">Cerrar sesión</button>
           </div>
         </header>
 

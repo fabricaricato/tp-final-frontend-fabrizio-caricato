@@ -34,10 +34,11 @@
 
 .user-list {
   list-style: none;
-  padding: 5px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+
 }
 
 .user {
@@ -47,11 +48,13 @@
   cursor: pointer;
   width: 100%;
   border-radius: 20px;
-  border: 1px solid #eee;
+  border: 3px solid #eee;
+  transition: ease 0.3s;
 }
 
 .user:hover {
   background-color: #eee;
+  transition: ease 0.3s;
 }
 
 .user-info {
@@ -113,11 +116,24 @@
   gap: 10px;
 }
 
-.chat-actions button {
+.chat-actions button, .help-button{
   background: none;
   border: none;
   cursor: pointer;
   font-size: 16px;
+  transition: ease 0.1s;
+  text-decoration: none;
+}
+
+.chat-actions button:hover, .help-button:hover {
+  transition: ease 0.1s;
+  background-color: grey;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.log-out:hover{
+  color: #ffffff;
 }
 
 .chat-messages {
@@ -278,6 +294,102 @@ form .text-info {
   border-radius: 10px;
   color: white;
   margin-top: 10px;
+}
+
+/* ====== ESTILO GENERAL ====== */
+.help-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #e0f2f1, #ffffff);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* ====== HEADER ====== */
+.help-header {
+  text-align: center;
+  margin-bottom: 25px;
+  background-color: #00695c;
+  padding: 20px 50px;
+  border-radius: 8px;
+}
+
+.help-logo {
+  width: 80px;
+  margin-bottom: 2px;
+}
+
+.help-header h1 {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+/* ====== CONTENIDO ====== */
+.help-content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ====== TARJETAS ====== */
+.help-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.help-card:hover {
+  background-color: #f1fdfb;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.help-card h2 {
+  color: #00796b;
+  margin-bottom: 10px;
+  font-size: 19px;
+}
+
+.help-card p,
+.help-card li {
+  line-height: 1.6;
+}
+
+.help-card ul {
+  margin-left: 19px;
+  padding-left: 5px;
+}
+
+/* ====== BOTÓN VOLVER ====== */
+.help-footer {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.help-back-btn {
+  background-color: #00897b;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.help-back-btn:hover {
+  background-color: #00796b;
+  transform: translateY(-2px);
 }
 
 /* Resposive mínimo para mobile */
