@@ -1,13 +1,16 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
 import { Link, useNavigate } from "react-router-dom"
+import { useTheme } from "../context/ThemeContext"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
   const [showPopup, setShowPopup] = useState(false)
+  
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
+  const { theme, setTheme } = useTheme();
 
   // 2. Buscamos el usuario activo
   const user = users.find(u => u.id === selectedUser)
@@ -62,6 +65,11 @@ export default function Chat() {
     setShowPopup(false)
   }
 
+  const handleChangeTheme = (e) => {
+    setTheme(e.target.value);
+    // localStorage.setItem("appTheme", e.target.value);
+  };
+
   return (
     <>
       {
@@ -69,9 +77,9 @@ export default function Chat() {
           <div className="popup">
             <h2>Configuración de Chat</h2>
             <h3>Cambiar tema:</h3>
-            <select name="" id="">
-              <option value="">Claro</option>
-              <option value="">Oscuro</option>
+            <select onChange={handleChangeTheme} value={theme}>
+              <option value="light">Claro</option>
+              <option value="dark">Oscuro</option>
             </select><br></br>
             <button onClick={handleClosePopup}>Cerrar</button>
           </div>

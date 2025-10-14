@@ -137,10 +137,6 @@
 }
 
 .chat-messages {
-  background-color: violet;
-}
-
-.chat-messages {
   flex: 1;
   padding: 15px;
   background-color: #fafafa;
@@ -296,7 +292,7 @@ form .text-info {
   margin-top: 10px;
 }
 
-/* ====== ESTILO GENERAL ====== */
+/* ====== PAGINA DE AYUDA ====== */
 .help-container {
   min-height: 100vh;
   background: linear-gradient(to bottom right, #e0f2f1, #ffffff);
@@ -308,10 +304,9 @@ form .text-info {
   font-family: "Segoe UI", Roboto, sans-serif;
 }
 
-/* ====== HEADER ====== */
 .help-header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   background-color: #00695c;
   padding: 20px 50px;
   border-radius: 8px;
@@ -329,7 +324,6 @@ form .text-info {
   padding-bottom: 5px;
 }
 
-/* ====== CONTENIDO ====== */
 .help-content {
   width: 100%;
   max-width: 800px;
@@ -369,10 +363,9 @@ form .text-info {
   padding-left: 5px;
 }
 
-/* ====== BOTÓN VOLVER ====== */
 .help-footer {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 .help-back-btn {
@@ -390,6 +383,118 @@ form .text-info {
 .help-back-btn:hover {
   background-color: #00796b;
   transform: translateY(-2px);
+}
+
+body.dark .chat-messages {
+  background-color: #121212; 
+  color:#FFFFFF; 
+}
+
+body.dark .sidebar {
+  background-color: #1E1E1E; 
+}
+
+body.dark .message-bubble {
+  background-color: #1E1E1E; 
+  color: #FFFFFF;
+}
+
+body.dark .search {
+  background-color: #1E1E1E; 
+  color: #FFFFFF;
+}
+
+body.dark .chat-footer{
+  background-color: #1E1E1E; 
+  color: #FFFFFF;
+}
+
+body.dark .chat-footer input{
+  background-color: #1E1E1E; 
+  color: #FFFFFF;
+}
+
+body.dark .chat-footer input{
+  background-color: #1E1E1E; 
+  color: #FFFFFF;
+}
+
+body.dark .chat-header{
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
+body.dark .message{
+  background-color: rgb(99, 129, 136);
+  color: #FFFFFF;
+}
+
+body.dark .log-out{
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
+body.dark .log-out:hover{
+  background-color: #FFFFFF;
+  color: #1E1E1E;;
+}
+
+body.dark .user{
+  color: #FFFFFF;
+}
+
+body.dark .user:hover{
+  color: #1E1E1E;
+}
+
+body.dark .popup{
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
+body.dark .popup select{
+  background-color: #121212; 
+  color: #FFFFFF;
+}
+
+body.dark .user-not-found{
+  background-color: #121212; 
+  color: #FFFFFF;
+}
+
+
+body.dark .help-container {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+body.dark .help-header {
+  background-color: #1e3a8a;
+}
+
+body.dark .help-header h1 {
+  color: #ffffff;
+}
+
+body.dark .help-card {
+  background-color: #374151;
+}
+
+body.dark .help-card:hover {
+  background-color: #4b5563;
+}
+
+body.dark .help-card h2 {
+  color: #67e8f9;
+}
+
+body.dark .help-back-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+body.dark .help-back-btn:hover {
+  background-color: #2563eb;
 }
 
 /* Resposive mínimo para mobile */
