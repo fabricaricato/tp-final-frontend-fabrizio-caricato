@@ -84,8 +84,26 @@
 .user-not-found {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.user-not-found p {
+  font-size: 20px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.show-users-button {
+  padding: 10px 50px;
+  border: none;
+  border-radius: 8px;
+  background-color: #215da7;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
 }
 
 .chat-header {
@@ -541,6 +559,11 @@ body.dark .help-back-btn:hover {
   background-color: #2563eb;
 }
 
+body.dark .show-users-button {
+  background-color: #2f343a;
+  color: white;
+}
+
 /* Resposive mínimo para mobile */
 @media (max-width: 480px) {
   .sidebar {
@@ -560,6 +583,10 @@ body.dark .help-back-btn:hover {
   }
 
   .button-header{
+    display: block;
+  }
+
+  .show-users-button {
     display: block;
   }
 }

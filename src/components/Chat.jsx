@@ -16,10 +16,37 @@ export default function Chat() {
 
   const navigate = useNavigate()
 
+  const handleShowSidebar = () => {
+    const sidebar = document.querySelector('.sidebar');
+    const input = document.querySelector('.search');
+    const chat = document.querySelector('.chat');
+    const userNotFound = document.querySelector('.user-not-found');
+
+    // Comprobamos si el elemento existe antes de usarlo
+    if (sidebar) {
+      sidebar.style.display = 'block';
+      sidebar.style.flex = '1';
+    }
+    
+    if (input) {
+      input.style.width = '100%';
+    }
+
+    // Esta es la comprobación clave que soluciona el error
+    if (chat) {
+      chat.style.display = 'none';
+    }
+
+    if (userNotFound) {
+      userNotFound.style.display = 'none';
+    }
+  };
+
   if (!user) {
     return (
       <div className="user-not-found">
         <p>No hay usuario seleccionado...</p>
+        <button className="show-users-button" onClick={handleShowSidebar}>Mostrar usuarios</button>
       </div>
     )
   }
@@ -68,16 +95,6 @@ export default function Chat() {
     setTheme(e.target.value);
     // localStorage.setItem("appTheme", e.target.value);
   };
-
-  const handleShowSidebar = () => {
-    const sidebar = document.querySelector('.sidebar');
-    const input = document.querySelector('.search');
-    sidebar.style.display = 'block';
-    sidebar.style.flex = '1';
-    input.style.width = '100%';
-    const chat = document.querySelector('.chat');
-    chat.style.display = 'none';
-  }
 
   return (
     <>
