@@ -96,6 +96,10 @@ export default function Chat() {
     localStorage.setItem("appTheme", e.target.value);
   };
 
+  const handleGallery = () => {
+    navigate("/gallery");
+  }
+
   return (
     <>
       {
@@ -128,7 +132,7 @@ export default function Chat() {
 
           <div className="chat-actions">
             <button title="Camera">📷</button>
-            <button title="Gallery">🖼️</button>
+            <button title="Gallery" onClick={handleGallery}>🖼️</button>
             <button title="Settings" onClick={handleShowPopup}>⚙️</button>
             <Link to="/help" title="Help"className="help-button">❓</Link>
             <button onClick={handleLogout} className="log-out">Cerrar sesión</button>

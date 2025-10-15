@@ -4,6 +4,7 @@ import { Messages } from "../views/Messages";
 import { NotFound } from "../views/NotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Help from "../views/Help";
+import Gallery from "../views/Gallery";
 
 const RouterApp = () => {
   return (
@@ -17,6 +18,7 @@ const RouterApp = () => {
             </ProtectedRoute>}
         />
         <Route path="/help" element={<Help />} />
+        <Route path="/gallery" element={<Gallery/>}></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
