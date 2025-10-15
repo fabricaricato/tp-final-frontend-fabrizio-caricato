@@ -76,7 +76,7 @@ export default function Chat() {
         showPopup === true && <section className="cont-popup">
           <div className="popup">
             <h2>Configuración de Chat</h2>
-            <h3>Cambiar tema:</h3>
+            <h3>Cambiar tema</h3>
             <select onChange={handleChangeTheme} value={theme}>
               <option value="light">Claro</option>
               <option value="dark">Oscuro</option>
