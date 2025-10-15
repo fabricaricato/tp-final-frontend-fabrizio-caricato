@@ -326,6 +326,7 @@ form .text-info {
 .popup h3 {
   font-size: 14px;
   color: rgb(95, 95, 95);
+  margin-top: 15px;
 }
 
 .popup button {
@@ -334,7 +335,7 @@ form .text-info {
   border: 1px solid rgb(201, 201, 201);
   border-radius: 10px;
   color: white;
-  margin-bottom: 20px;
+  margin: 20px;
   transition: ease 0.3s;
 }
 
@@ -345,7 +346,7 @@ form .text-info {
 }
 
 select {
-  margin-top: 23px;
+  margin-top: 5px;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
