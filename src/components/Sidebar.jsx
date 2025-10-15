@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
 import { useChat } from "../context/ChatContext"
+import { useLanguage } from "../context/LanguageContext"
+import translations from "../translations"
 
 export default function Sidebar() {
   const { users, setSelectedUser } = useChat()
   const [usersToRender, setUsersToRender] = useState(users)
+  const { language } = useLanguage() 
 
   useEffect(() => {
     setUsersToRender(users)
@@ -32,13 +35,13 @@ export default function Sidebar() {
     <div className="sidebar">
       <input
         type="text"
-        placeholder="Search..."
+        placeholder={translations[language].searchPlaceholder}
         className="search"
         onChange={handleChange}
       />
 
       {usersToRender.length === 0 && (
-        <p className="search-result">No search found...</p>
+        <p className="search-result">{translations[language].noResults}</p>
       )}
 
       <ul className="user-list">
@@ -66,7 +69,9 @@ export default function Sidebar() {
                 {user.name}
               </strong>
               <small>
-                {user.status === "offline" ? user.lastSeen : "online"}
+                {user.status === "offline"
+                  ? user.lastSeen
+                  : translations[language].online}
               </small>
             </div>
           </li>
