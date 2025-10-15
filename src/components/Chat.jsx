@@ -5,8 +5,7 @@ import { useTheme } from "../context/ThemeContext"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
-  const [showPopup, setShowPopup] = useState(false)
-  
+  const [showPopup, setShowPopup] = useState(false)  
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
@@ -70,6 +69,16 @@ export default function Chat() {
     // localStorage.setItem("appTheme", e.target.value);
   };
 
+  const handleShowSidebar = () => {
+    const sidebar = document.querySelector('.sidebar');
+    const input = document.querySelector('.search');
+    sidebar.style.display = 'block';
+    sidebar.style.flex = '1';
+    input.style.width = '100%';
+    const chat = document.querySelector('.chat');
+    chat.style.display = 'none';
+  }
+
   return (
     <>
       {
@@ -87,6 +96,7 @@ export default function Chat() {
       }
       <div className="chat">
         <header className="chat-header">
+          <button className="button-header" onClick={handleShowSidebar}>🔍</button>
           <div>
             <div className="chat-user">
               <img

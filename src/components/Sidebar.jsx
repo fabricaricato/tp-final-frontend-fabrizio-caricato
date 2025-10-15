@@ -5,18 +5,27 @@ export default function Sidebar() {
   const { users, setSelectedUser } = useChat()
   const [usersToRender, setUsersToRender] = useState(users)
 
-  // 🔄 Cada vez que cambien los usuarios globales, actualizamos la lista a renderizar
   useEffect(() => {
     setUsersToRender(users)
   }, [users])
 
-  // 🔍 Filtro por búsqueda
   const handleChange = (event) => {
     const searchTerm = event.target.value.toLowerCase()
     const result = users.filter((user) =>
       user.name.toLowerCase().includes(searchTerm)
     )
     setUsersToRender(result)
+  }
+
+  const handleUserClick = (userId) => {
+    setSelectedUser(userId)
+
+    if (window.innerWidth <= 480) {
+      const sidebar = document.querySelector(".sidebar")
+      const chat = document.querySelector(".chat")
+      sidebar.style.display = "none"
+      chat.style.display = "flex"
+    }
   }
 
   return (
@@ -36,7 +45,7 @@ export default function Sidebar() {
         {usersToRender.map((user) => (
           <li
             key={user.id}
-            onClick={() => setSelectedUser(user.id)}
+            onClick={() => handleUserClick(user.id)}
             className="user"
           >
             <img
