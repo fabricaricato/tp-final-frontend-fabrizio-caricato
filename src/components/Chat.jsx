@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useChat } from "../context/ChatContext"
 import { Link, useNavigate } from "react-router-dom"
 import { useTheme } from "../context/ThemeContext"
+import { useLanguage } from "../context/LanguageContext"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
@@ -10,6 +11,7 @@ export default function Chat() {
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
   const { theme, setTheme } = useTheme();
+  const { language, setLanguage } = useLanguage();
 
   // 2. Buscamos el usuario activo
   const user = users.find(u => u.id === selectedUser)
@@ -100,6 +102,10 @@ export default function Chat() {
     navigate("/gallery");
   }
 
+  const handleChangeLanguage = (e) => {
+    setLanguage(e.target.value);
+  }
+
   return (
     <>
       {
@@ -111,6 +117,10 @@ export default function Chat() {
               <option value="light">Claro</option>
               <option value="dark">Oscuro</option>
             </select><br></br>
+            <select onChange={handleChangeLanguage} value={language}>
+              <option value="en">Inglés</option>
+              <option value="es">Español</option>
+            </select>
             <button onClick={handleClosePopup}>Cerrar</button>
           </div>
         </section>
