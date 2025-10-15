@@ -3,62 +3,48 @@ import { useChat } from "../context/ChatContext"
 import { Link, useNavigate } from "react-router-dom"
 import { useTheme } from "../context/ThemeContext"
 import { useLanguage } from "../context/LanguageContext"
+import translations from "../translations"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
-  const [showPopup, setShowPopup] = useState(false)  
+  const [showPopup, setShowPopup] = useState(false)
 
-  // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
-  const { theme, setTheme } = useTheme();
-  const { language, setLanguage } = useLanguage();
-
-  // 2. Buscamos el usuario activo
-  const user = users.find(u => u.id === selectedUser)
+  const { theme, setTheme } = useTheme()
+  const { language, setLanguage } = useLanguage()
 
   const navigate = useNavigate()
 
+  const user = users.find(u => u.id === selectedUser)
+
   const handleShowSidebar = () => {
-    const sidebar = document.querySelector('.sidebar');
-    const input = document.querySelector('.search');
-    const chat = document.querySelector('.chat');
-    const userNotFound = document.querySelector('.user-not-found');
+    const sidebar = document.querySelector(".sidebar")
+    const input = document.querySelector(".search")
+    const chat = document.querySelector(".chat")
+    const userNotFound = document.querySelector(".user-not-found")
 
-    // Comprobamos si el elemento existe antes de usarlo
     if (sidebar) {
-      sidebar.style.display = 'block';
-      sidebar.style.flex = '1';
+      sidebar.style.display = "block"
+      sidebar.style.flex = "1"
     }
-    
-    if (input) {
-      input.style.width = '100%';
-    }
-
-    // Esta es la comprobación clave que soluciona el error
-    if (chat) {
-      chat.style.display = 'none';
-    }
-
-    if (userNotFound) {
-      userNotFound.style.display = 'none';
-    }
-  };
+    if (input) input.style.width = "100%"
+    if (chat) chat.style.display = "none"
+    if (userNotFound) userNotFound.style.display = "none"
+  }
 
   if (!user) {
     return (
       <div className="user-not-found">
-        <p>No hay usuario seleccionado...</p>
-        <button className="show-users-button" onClick={handleShowSidebar}>Mostrar usuarios</button>
+        <p>{translations[language].noUser}</p>
+        <button className="show-users-button" onClick={handleShowSidebar}>
+          {translations[language].showUsers}
+        </button>
       </div>
     )
   }
 
-  // 3. Manejo del input
-  const handleChange = (event) => {
-    setMsg(event.target.value)
-  }
+  const handleChange = (event) => setMsg(event.target.value)
 
-  // 4. Cuando enviamos el formulario
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -68,15 +54,13 @@ export default function Chat() {
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
     }
 
-    // ✅ Actualizamos el estado de manera INMUTABLE
     const updatedUsers = users.map(u =>
       u.id === user.id
         ? { ...u, messages: [...u.messages, newMessage] }
         : u
     )
 
-    setUsers(updatedUsers) // esto dispara el useEffect del contexto que guarda en localStorage
-
+    setUsers(updatedUsers)
     setMsg("")
   }
 
@@ -85,46 +69,43 @@ export default function Chat() {
     navigate("/")
   }
 
-  const handleShowPopup = () => {
-    setShowPopup(true)
-  }
-
-  const handleClosePopup = () => {
-    setShowPopup(false)
-  }
+  const handleShowPopup = () => setShowPopup(true)
+  const handleClosePopup = () => setShowPopup(false)
+  const handleGallery = () => navigate("/gallery")
 
   const handleChangeTheme = (e) => {
-    setTheme(e.target.value);
-    localStorage.setItem("appTheme", e.target.value);
-  };
-
-  const handleGallery = () => {
-    navigate("/gallery");
+    setTheme(e.target.value)
+    localStorage.setItem("appTheme", e.target.value)
   }
 
   const handleChangeLanguage = (e) => {
-    setLanguage(e.target.value);
+    setLanguage(e.target.value)
   }
 
   return (
     <>
-      {
-        showPopup === true && <section className="cont-popup">
+      {showPopup && (
+        <section className="cont-popup">
           <div className="popup">
-            <h2>Configuración de Chat</h2>
-            <h3>Cambiar tema</h3>
+            <h2>{translations[language].chatSettings}</h2>
+
+            <h3>{translations[language].changeTheme}</h3>
             <select onChange={handleChangeTheme} value={theme}>
-              <option value="light">Claro</option>
-              <option value="dark">Oscuro</option>
-            </select><br></br>
-            <select onChange={handleChangeLanguage} value={language}>
-              <option value="en">Inglés</option>
-              <option value="es">Español</option>
+              <option value="light">{translations[language].light}</option>
+              <option value="dark">{translations[language].dark}</option>
             </select>
-            <button onClick={handleClosePopup}>Cerrar</button>
+
+            <h3>{translations[language].changeLanguage}</h3>
+            <select onChange={handleChangeLanguage} value={language}>
+              <option value="en">{translations[language].english}</option>
+              <option value="es">{translations[language].spanish}</option>
+            </select>
+
+            <button onClick={handleClosePopup}>{translations[language].close}</button>
           </div>
         </section>
-      }
+      )}
+
       <div className="chat">
         <header className="chat-header">
           <button className="button-header" onClick={handleShowSidebar}>🔍</button>
@@ -136,16 +117,22 @@ export default function Chat() {
                 className="chat-avatar"
               />
               <strong>{user.name}</strong>
-              {user.lastSeen !== "" && <span className="last-seen">Last seen: {user.lastSeen}</span>}
+              {user.lastSeen !== "" && (
+                <span className="last-seen">
+                  {translations[language].lastSeen}: {user.lastSeen}
+                </span>
+              )}
             </div>
           </div>
 
           <div className="chat-actions">
-            <button title="Camera">📷</button>
-            <button title="Gallery" onClick={handleGallery}>🖼️</button>
-            <button title="Settings" onClick={handleShowPopup}>⚙️</button>
-            <Link to="/help" title="Help"className="help-button">❓</Link>
-            <button onClick={handleLogout} className="log-out">Cerrar sesión</button>
+            <button title={translations[language].camera}>📷</button>
+            <button title={translations[language].gallery} onClick={handleGallery}>🖼️</button>
+            <button title={translations[language].settings} onClick={handleShowPopup}>⚙️</button>
+            <Link to="/help" title={translations[language].help} className="help-button">❓</Link>
+            <button onClick={handleLogout} className="log-out">
+              {translations[language].logout}
+            </button>
           </div>
         </header>
 
@@ -162,7 +149,7 @@ export default function Chat() {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Enter text here..."
+              placeholder={translations[language].placeholder}
               onChange={handleChange}
               value={msg}
             />
