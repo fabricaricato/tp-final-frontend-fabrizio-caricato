@@ -93,7 +93,7 @@ export default function Chat() {
 
   const handleChangeTheme = (e) => {
     setTheme(e.target.value);
-    // localStorage.setItem("appTheme", e.target.value);
+    localStorage.setItem("appTheme", e.target.value);
   };
 
   return (

@@ -12,7 +12,14 @@ const ThemeProvider = ({ children }) => {
   
   useEffect(() => {
   document.body.className = theme;
-}, [theme]);
+  }, [theme]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("appTheme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
   
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme}}>
