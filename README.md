@@ -63,7 +63,7 @@ tp-final-frontend-fabrizio-caricato/
 
 ---
 
-## 🧭 Características principales
+## ✔ Funcionalidades nuevas implementadas
 
 - 🌙 **Modo oscuro y claro** mediante Context API.  
 - 📄 **Página de ayuda / información** con interfaz intuitiva.  
