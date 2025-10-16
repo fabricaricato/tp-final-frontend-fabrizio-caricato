@@ -2,7 +2,7 @@
 
 Este proyecto es una aplicación web desarrollada con **React** y **Vite**, como parte del trabajo final del primer modulo de front-end developer de la **UTN**
 
-El sitio implementa componentes reutilizables, un sistema de temas (modo claro/oscuro) y navegación por rutas, buscando aplicar buenas prácticas de desarrollo frontend moderno.
+El sitio implementa componentes reutilizables, un sistema de temas (modo claro/oscuro), un alternador para cambiar el lenguaje de toda la página web y navegación por rutas, buscando aplicar buenas prácticas de desarrollo frontend moderno.
 
 Esta aplicación actúa como una plataforma de comunicación digital que facilita el intercambio de mensajes en tiempo real y gestiona la persistencia de las interacciones y los datos de usuario.
 
@@ -35,12 +35,14 @@ tp-final-frontend-fabrizio-caricato/
 │ │
 │ ├── context/ # Contextos globales de la aplicación (manejo de estado)
 │ │ ├── ChatContext.jsx # Contexto para la gestión del chat (mensajes, usuarios, etc.)
+│ │ ├── LanguageContext.jsx # Contexto para el lenguaje (chat, help, etc.)
 │ │ └── ThemeContext.jsx # Contexto para el tema (modo claro/oscuro)
 │ │
 │ ├── router/ # Configuración y control de rutas
 │ │ └── RouterApp.jsx # Definición de las rutas principales de la app
 │ │
 │ ├── views/ # Páginas principales del sitio
+│ │ ├── Gallery.jsx # Página de galería de fotos
 │ │ ├── Help.jsx # Página de ayuda o soporte
 │ │ ├── Login.jsx # Página de inicio de sesión
 │ │ ├── Messages.jsx # Página de mensajes o conversación
@@ -48,7 +50,7 @@ tp-final-frontend-fabrizio-caricato/
 │ │
 │ ├── index.css # Estilos globales del proyecto
 │ ├── main.jsx # Punto de entrada de React (montaje del componente raíz)
-│ └── App.jsx # Componente principal de la aplicación
+│ └── translations.js # Archivo con las traducciones de la página web
 │
 ├── .gitignore # Archivos y carpetas ignorados por Git
 ├── eslint.config.js # Configuración de ESLint
@@ -65,9 +67,8 @@ tp-final-frontend-fabrizio-caricato/
 
 - 🌙 **Modo oscuro y claro** mediante Context API.  
 - 📄 **Página de ayuda / información** con interfaz intuitiva.  
-- ⚙️ **Componentes modulares** y reutilizables.  
-- 📱 **Diseño responsive**, adaptable a diferentes dispositivos.  
-- 🧩 **Configuración optimizada** con Vite para desarrollo y producción.
+- 📱 **Diseño responsive** adaptable a diferentes dispositivos.
+- 📱 **Cambio de idioma** para una mejor integración con el usuario.
 
 ---
 
